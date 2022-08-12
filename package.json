@@ -9,7 +9,8 @@
     "test": "jest src",
     "start": "node .",
     "start:dev": "nodemon -q",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test": "jest src"
   },
   "keywords": [],
   "author": "",
