@@ -6,6 +6,7 @@
   "scripts": {
     "ts": "tsc",
     "ts:dev": "tsc -w",
+    "test": "jest src",
     "start": "node .",
     "start:dev": "nodemon -q",
     "prepare": "husky install",
