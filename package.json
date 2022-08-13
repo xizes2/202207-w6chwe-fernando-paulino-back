@@ -10,7 +10,8 @@
     "test:dev": "jest src -w",
     "start": "node .",
     "start:dev": "nodemon -q",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "jest-coverage": "jest src --coverage"
   },
   "keywords": [],
   "author": "",
@@ -43,6 +44,6 @@
     "morgan": "^1.10.0"
   },
   "engines": {
-    "node": "16.15.0"
+    "node": "^18.0.0"
   }
 }
