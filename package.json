@@ -4,12 +4,11 @@
   "description": "",
   "main": "dist/index.js",
   "scripts": {
-    "ts": "tsc",
+    "build": "tsc",
     "ts:dev": "tsc -w",
     "test": "jest src",
     "test:dev": "jest src -w",
     "start": "node .",
-    "main": "dist/index.js",
     "start:dev": "nodemon -q",
     "prepare": "husky install"
   },
