@@ -3,10 +3,10 @@ import chalk from "chalk";
 import Debug from "debug";
 import express from "express";
 
-const app = express();
-const debug = Debug("app-robot");
+export const app = express();
+const debug = Debug("app-robot:server");
 
-const startServer = (port: number) => {
+export const startServer = (port: number) => {
   // eslint-disable-next-line no-new
   new Promise((resolve, reject) => {
     const server = app.listen(port, () => {
@@ -22,5 +22,3 @@ const startServer = (port: number) => {
     });
   });
 };
-
-export default startServer;

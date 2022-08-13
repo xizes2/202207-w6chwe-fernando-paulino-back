@@ -7,6 +7,6 @@ const robotSchema = new Schema({
   creationDate: { type: String },
 });
 
-const Robot = model("Robot", robotSchema, "Robot");
+const Robot = model("Robot", robotSchema, "robots");
 
 export default Robot;
