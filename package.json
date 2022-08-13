@@ -9,6 +9,7 @@
     "test": "jest src",
     "test:dev": "jest src -w",
     "start": "node .",
+    "main": "dist/index.js",
     "start:dev": "nodemon -q",
     "prepare": "husky install"
   },
@@ -41,5 +42,8 @@
     "express": "^4.18.1",
     "mongoose": "^6.5.2",
     "morgan": "^1.10.0"
+  },
+  "engines": {
+    "node": "12.16.3"
   }
 }
