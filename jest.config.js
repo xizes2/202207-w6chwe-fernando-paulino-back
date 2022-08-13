@@ -3,5 +3,10 @@ module.exports = {
   preset: "ts-jest",
   testEnvironment: "node",
   passWithNoTests: true,
-  collectCoverageFrom: ["!src/index.ts", "!src/server/startServer.ts"],
+  collectCoverageFrom: [
+    "src/**/*.ts",
+    "!src/index.ts",
+    "!src/server/startServer.ts",
+    "!src/database/index.ts",
+  ],
 };
