@@ -16,7 +16,7 @@ jobs:
       - name: Install modules
         run: npm install
       - name: Coverage
-        run: jest src --coverage
+        run: npm run jest-coverage
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
