@@ -1,3 +1,4 @@
+import cors from "cors";
 import connectDataBase from "./database";
 import "./dotenv";
 import robotsRouter from "./server/router/robotsRouter";
@@ -16,4 +17,5 @@ const PORT = process.env.PORT ?? 4020;
     process.exit(1);
   }
 })();
+app.use(cors());
 app.use("/robots", robotsRouter);
