@@ -7,7 +7,7 @@ const robotSchema = new Schema({
     endurance: { type: Number, required: true },
     creationDate: { type: String },
   },
-  img: { type: Number, required: true },
+  img: { type: String, required: true },
 });
 
 const Robot = model("Robot", robotSchema, "robots");
