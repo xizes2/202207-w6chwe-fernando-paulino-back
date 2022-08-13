@@ -1,5 +1,5 @@
 import express from "express";
-import getRobots from "../constrollers/robotsControllers";
+import getRobots from "../controllers/robotsControllers";
 
 const robotsRouter = express.Router();
 
