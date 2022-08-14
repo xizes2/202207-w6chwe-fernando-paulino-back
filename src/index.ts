@@ -1,3 +1,4 @@
+import cors from "cors";
 import connectDataBase from "./database";
 import "./dotenv";
 import robotsRouter from "./server/router/robotsRouter";
@@ -14,4 +15,5 @@ const mongoUrl = process.env.MONGOURL;
     process.exit(1);
   }
 })();
+app.use(cors());
 app.use("/robots", robotsRouter);
