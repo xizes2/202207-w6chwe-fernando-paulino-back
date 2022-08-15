@@ -1,6 +1,8 @@
 import cors from "cors";
 import morgan from "morgan";
+import express from "express";
 import connectDataBase from "./database";
+import { notFoundError } from "./server/middlewares/error";
 import "./dotenv";
 import robotsRouter from "./server/router/robotsRouter";
 import { startServer, app } from "./server/startServer";
@@ -18,4 +20,6 @@ const mongoUrl = process.env.MONGOURL;
 })();
 app.use(morgan("dev"));
 app.use(cors());
+app.use(express.json());
 app.use("/robots", robotsRouter);
+app.use("/", notFoundError);
