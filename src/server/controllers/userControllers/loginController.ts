@@ -9,13 +9,15 @@ const loginUser = (req: Request, res: Response) => {
     id: "124123412",
     userName: user.username,
   };
+  debugger;
 
   const responseData = {
     user: {
       token: createToken(payload),
-      id: payload.id,
+      userName: payload.userName,
     },
   };
+  debugger;
   res.status(200).json(responseData);
 };
 
