@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import { JwtPayload } from "jsonwebtoken";
 import { verifyToken } from "../../utils/auth";
-import CreateCustomError from "../../utils/CreateCustomError.ts";
+import CreateCustomError from "../../utils/CreateCustomError";
 import CustomError from "../types/error";
 
 interface ICustomRequest extends Request {
