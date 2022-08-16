@@ -9,7 +9,6 @@ const loginUser = (req: Request, res: Response) => {
     id: "124123412",
     userName: user.username,
   };
-  debugger;
 
   const responseData = {
     user: {
@@ -17,7 +16,6 @@ const loginUser = (req: Request, res: Response) => {
       userName: payload.userName,
     },
   };
-  debugger;
   res.status(200).json(responseData);
 };
 
