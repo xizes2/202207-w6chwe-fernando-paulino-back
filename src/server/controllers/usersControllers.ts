@@ -95,7 +95,12 @@ export const registerUser = async (
   next: NextFunction
 ) => {
   const user: UserRegister = req.body as LoginData;
-  user.password = await hashCreator(user.password);
+  try {
+    user.password = await hashCreator(user.password);
+  } catch (error) {
+    const customError = CreateCustomError(400, error.message, "Missing data");
+    next(customError);
+  }
 
   try {
     const newUser = await User.create(user);
