@@ -7,16 +7,16 @@ const debug = Debug("app-robot:database:index");
 
 const connectDataBase = (mongoUrl: string) =>
   new Promise((resolve, reject) => {
-    // Aqui cambio el _id por id y _v por
     mongoose.set("toJSON", {
       virtuals: true,
-      transform: (doc, ret: { _id: string; _v: string }) => {
+      transform: (doc, ret: { _id: string; __v: string }) => {
         const newDocument = { ...ret };
 
+        // Aqui yo borro _id y __v de la salida de datos del db, no del db en si
         // eslint-disable-next-line no-underscore-dangle
         delete newDocument._id;
         // eslint-disable-next-line no-underscore-dangle
-        delete newDocument._v;
+        delete newDocument.__v;
 
         return newDocument;
       },
