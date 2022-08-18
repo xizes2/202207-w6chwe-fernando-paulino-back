@@ -1,16 +1,15 @@
 import { NextFunction, Request, Response } from "express";
-import { JwtPayload } from "jsonwebtoken";
-import { verifyToken } from "../../utils/auth";
+import { IJwtPayload, verifyToken } from "../../utils/auth";
 import CreateCustomError from "../../utils/CreateCustomError";
 import CustomError from "../types/error";
 
-interface ICustomRequest extends Request {
-  payload: JwtPayload;
+export interface ICustomRequest extends Request {
+  payload: IJwtPayload;
 }
 
 const authentication = (
   req: ICustomRequest,
-  res: Response,
+  _res: Response,
   next: NextFunction
 ) => {
   const dataAuthentication = req.get("Authorization");
@@ -33,7 +32,7 @@ const authentication = (
     return;
   }
 
-  req.payload = tokenData as ICustomRequest;
+  req.payload = tokenData as IJwtPayload;
   next();
 };
 

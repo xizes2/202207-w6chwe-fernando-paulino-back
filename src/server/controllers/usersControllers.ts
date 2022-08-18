@@ -13,7 +13,7 @@ import CreateCustomError from "../../utils/CreateCustomError";
 const debug = Debug("app-robots:usersControllers.ts");
 
 interface LoginData {
-  username: string;
+  userName: string;
   password: string;
 }
 export const loginUser = async (
@@ -32,7 +32,11 @@ export const loginUser = async (
 
   // Gestion para saber si es valido el userName. Las funciones con await se deben poner dentro de un bloque try-catch
   try {
-    findUsers = await User.find({ userName: user.username });
+    findUsers = await User.find(
+      /* Estoy usando el metodo .find del modelo User (viene de Schema), que se conecta con la DB y ahí busca lo que quiero saber */ {
+        userName: user.userName,
+      } /* patron de busqueda */
+    );
     if (findUsers.length === 0) {
       next(userError);
       return;
@@ -45,13 +49,12 @@ export const loginUser = async (
       }`,
       "User or password not valid"
     );
-
     next(finalError);
     return;
   }
 
   try {
-    const isPasswordValid = hashCompare(
+    const isPasswordValid = await hashCompare(
       user.password /* Pass original del user */,
       findUsers[0].password /* Pass hasheada en mongoose */
     );
@@ -85,7 +88,7 @@ export const loginUser = async (
 };
 
 interface UserRegister {
-  username: string;
+  userName: string;
   password: string;
 }
 
